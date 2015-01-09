@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Countdown</title>
+        <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <script type='text/javascript' src="script.js"></script>
+        <link type="text/css" rel="stylesheet" href="homestyle.css"/>
+        <link rel="shortcut icon" href="logo.ico" >
+    </head>
+    <body>
+        <div id="headerbeingreallystupid">
+            <ul>
+                <li class="bannertext">
+                    <a href="homepage.html">
+                        <img id="logo" src='logo.png'/>
+                    </a>
+                </li>
+                <li class="bannertext">
+                    <a href="quiz.html">Take the quiz!</a>
+                </li>
+                <li class="bannertext">
+                    <a href="randHex.html">Random Hex Color!</a>
+                </li>
+                <li class="bannertext">
+                    <a href="galapagos.html">Galapagos Captions!</a>
+                </li>
+                <li class="bannertext">
+                    <a href="countdown.html">2016 Countdown!</a>
+                </li>
+            </ul>
+        </div>
+            <ul class="howlonguntillist">
+                <li class="howlonguntil">
+                    <p id="timetill">Time until 2016: fart days, poop hours, 0 minutes, 0 seconds</p>
+                </li>
+            </ul>
+    </body>
+    <script>
+    $all = $('#evertin');
+    windowwidth = window.innerWidth;
+    windowheight = window.innerHeight;
+    randBack();
+    $(document).ready(function () {
+          $all.css('height', windowheight+'px');
+          $all.css('width', windowwidth+'px');
+    });
+    changeBack = function () {
+            $('body').animate({backgroundColor:''+randHex()+''}, 23000);
+            $('header').animate({backgroundColor:''+randHex()+''}, 23000);
+        };
+    setInterval(function () {changeBack()}, 23000);
+    daysInMonth = 31;
+    var beginDate = new Date();
+    if(beginDate.getMonth == 0 || 2 || 4 || 6 || 7 || 9 || 11) {
+        daysInMonth = 31;
+    }
+    if(beginDate.getMonth == 3 || 5 || 8 || 10) {
+        daysInMonth = 30;
+    }
+    if(beginDate.getMonth == 1) {
+        daysInMonth = 28;
+    }
+    var update = function () {
+        current = new Date();
+        cMonths = current.getMonth();
+        cDays = current.getDate();
+        cHours = current.getHours();
+        cMins = current.getMinutes();
+        cSecs = current.getSeconds();
+        cMills = current.getMilliseconds();
+        cMillsUntil = (1000 - cMills);
+        if (cMillsUntil < 100) {
+            cMillsUntil = "0" + cMillsUntil + "";
+            if(cMillsUntil.length === 2) {
+                cMillsUntil = "0" + cMillsUntil + "";
+                if(cMillsUntil.length === 1) {
+                    cMillsUntil = "000";
+                };
+            };
+        };
+        $('#timetill').html("<span id='topofthecrap'><strong>Time until 2016</strong></span><br> "+(11 - cMonths)+" Months,<br>"+(daysInMonth - cDays)+" days, "+(23 - cHours)+" hours, <br>"+(59-cMins)+" minutes,<br> and "+(59-cSecs)+"."+cMillsUntil+" seconds.");
+    };
+    var clock = setInterval(function () {update()}, 27);
+        </script>
+</html>

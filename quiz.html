@@ -1,0 +1,92 @@
+F<!DOCTYPE html>
+<html>
+<head>
+    <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="homestyle.css"/>
+    <script type='text/javascript' src="randomBackground.js"></script>
+    <script type='text/javascript' src="script.js"></script>
+        <link rel="shortcut icon" href="logo.ico" >
+    <title>Noah's Cool Website'</title>
+</head>
+<body style="background-color:black">
+    <div id="wtfareyoudoingheaderworkyoustupidthing">
+        <ol>
+            <li class="bannertext">
+                <a href="homepage.html">
+                    <img id="logo" src='logo.png'/>
+                </a>
+            </li>
+            <li class="bannertext">
+                <a href="quiz.html">Take the quiz!</a>
+            </li>
+            <li class="bannertext">
+                <a href="randHex.html">Random Hex Color!</a>
+            </li>
+            <li class="bannertext">
+                <a href="galapagos.html">Galapagos Captions!</a>
+            </li>
+            <li class="bannertext">
+                <a href="countdown.html">2016 Countdown!</a>
+            </li>
+            
+        </ol>
+    </div>
+    <p id="title2" class="fade"><strong>Noah's Cool Website</strong></p>
+    <div class="welcome">
+    <p id="intro" class="fade"><strong>Welcome to the Quiz!</strong></p>
+    <p id="intro2" class="fade">In here, your goal is to answer all the questions below. This is the first true webpage I had ever made so I'm keeping all the bugs just for the memories. Ignore them if they occur. If you want a non-buggy website, go to the other subpages. Also, <strong>NOTHING WORKS AT ALL :((((( so if you want to find stuff that actually works just go to other webpages on my site.</strong></p>
+    </div>
+    <div class="floatingstuff" id="qscorrect">
+        <p class="floatingstuff" id="correcttext">Questions right: <strong>0</strong></p>
+    </div>
+    <div class="content" id="contentdiv">
+        <div id="colors">
+            <form style="display:inline-block;float:right">
+                What color should the background be? <input type="color" id="colorChoose" name="colorChoose" ></input>
+            </form>
+            <button style="display:inline-block;float:right" onclick="color()">Submit color</button>
+        </div>
+        <script>
+            var color = function () {
+                $('body').css('background-color', $('input[name=colorChoose]').val())
+                $('.welcome').css('background-color', $('input[name=colorChoose]').val())
+                $('#contentdiv').css('background-color', $('input[name=colorChoose]').val())
+                $('#colors').css('background-color', $('input[name=colorChoose]').val())
+                }
+        </script>
+        <p id="texty" class="fade">Please answer the questions below.</p>
+        <form>
+            Do you like waffles? <input type="text" name="question1" value="Y/N"/>
+        </form>
+        <button onclick="answer(1, 'Y', 'N')" id=>Answer!</button>
+        <div class="answerbox" id="a1"></div>
+        <form>
+            Are farts funny? <input type="text" name="question2" value="Y/N"/>
+        </form>
+        <button onclick="answer(2, 'Y', 'N')" id=>Answer!</button>
+        <div class="answerbox" id="a2"></div>
+        <form>
+             Does Noah having long hair make him a female? <input type="text" name="question3" value="Y/N"/>
+                </form>
+        <button onclick="answer(3, 'N','Y')" id=>Answer!</button>
+        <div class="answerbox" id="a3"></div>
+        <form>
+            Is the square root of two about 1.414? <input type="text" name="question4" value="Y/N"/>
+                </form>
+        <button onclick="answer(4, 'Y','N')" id=>Answer!</button>
+        <div class="answerbox" id="a4"></div>
+        <form>
+            Is HTML cool? <input type="text" name="question5" value="Y/N"/>
+                </form>
+        <button onclick="answer(5, 'Y','N')" id=>Answer!</button>
+        <div class="answerbox" id="a5"></div>
+        <div id="click4score">
+            <p id="scoretext" class="fade">Hover to see your Noah Score!</p>
+            <p id="noahscore" class="fade"><strong>Noah Score: 0</strong></p>
+        </div>
+        <div id="celebrate">
+            <p style="font-size:20px;opacity:1;color:green">Hover to celebrate!</p>
+        </div>
+    </div>
+</body>
+</html>

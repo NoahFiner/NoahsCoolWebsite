@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script type="text/javascript" src="randomBackground.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <link rel="stylesheet" href='homestyle.css'/>
+        <link rel="shortcut icon" href="logo.ico" >
+        <title>Random Hex Color</title>
+    </head>
+    <body style="background-color:black">
+        <div id="header">
+            <ul style="position:absolute">
+                <li class="bannertext">
+                    <a href="homepage.html">
+                        <img id="logo" src='logo.png'/>
+                    </a>
+                </li>
+                <li class="bannertext">
+                    <a href="quiz.html">Take the quiz!</a>
+                </li>
+                <li class="bannertext">
+                    <a href="randHex.html">Random hex color!</a>
+                </li>
+                <li class="bannertext">
+                    <a href="galapagos.html">Galapagos Captions!</a>
+                </li>
+                <li class="bannertext">
+                    <a href="countdown.html">2016 Countdown!</a>
+                </li>
+            </ul>
+            </div>
+        <p id="title2" class="fade"><strong>Noah's Cool Website</strong></p>
+        <p id="pointing"><strong>Hover over there --></strong></p>
+        <div id="newPARTY" class="hexDiv">
+            <p id="newPARTYText" class="fade">Hover to <strong>PARTY</strong></p>
+        </div>
+        <div id="newHex" class="hexDiv">
+            <p id="newHexText">Hover to make a new hex color!</p>
+        </div>
+        <div id="defaultdiv">
+            <h3 class="defaults"><strong>Default Colors</strong></h3>
+            <ul>
+                <li class="defaults">
+                    <div id="reddy" class="defdivs"></div>
+                </li>
+                <li class="defaults">
+                    <div id="greeny" class="defdivs"></div>
+                </li>
+                <li class="defaults">
+                    <div id="bluey" class="defdivs"></div>
+                </li>
+                <li class="defaults">
+                    <div id="yellowy" class="defdivs"></div>
+                </li>
+                <li class="defaults">
+                    <div id="orangey" class="defdivs"></div>
+                </li>
+                <li class="defaults">
+                    <div id="purply" class="defdivs"></div>
+            </ul>
+        </div>
+        <div id="customHexDiv">
+            <h3>Custom Color</h3>
+            <div class="custdivs">
+                <p class="fade">Custom Hex</p>
+                <form id="customhexform">
+                    <input type="text" name="customhex" value="#" id="custhexinput"/>
+                </form>
+                <div id="button1" class="buttons">
+                <p class="tiny">Submit</p>
+                </div>
+            </div>
+            <div class="custdivs">
+                <p class="fade">Custom Color</p>
+                <form>
+                    <input type="color" name="customcolor"/>
+                </form>
+                <div id="button2" class="buttons">
+                <p class="tiny">Submit</p>
+                </div>
+            </div>
+        </div>
+        <p id="currentHex"><strong>#000000</strong></p>
+        <div id="back">
+            <h3 id="backText">Previous Hex</h3>
+        </div>
+    </body>
+</html>

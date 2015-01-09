@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <!--WAIT CRAP OOPS THE MUSIC IS COPYWRITED IGNORE THAT THANKS C:
+     
+     If you want to know what it is, it's Moog City by C418. Minecraft music ftw.
+     
+     Good thing this website isn't published.-->
+    <head>
+        <title>Galapagos Captions</title>
+    <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script type='text/javascript' src="script.js"></script>
+    <link type="text/css" rel="stylesheet" href="homestyle.css"/>
+        <link rel="shortcut icon" href="logo.ico" >
+    </head>
+    <body>
+        <div id="header">
+            <ul>
+                <li class="bannertext">
+                    <a href="homepage.html">
+                        <img id="logo" src='logo.png'/>
+                    </a>
+                </li>
+                <li class="bannertext">
+                    <a href="quiz.html">Take the quiz!</a>
+                </li>
+                <li class="bannertext">
+                    <a href="randHex.html">Random Hex Color!</a>
+                </li>
+                <li class="bannertext">
+                    <a href="galapagos.html">Galapagos Captions!</a>
+                </li>
+                <li class="bannertext">
+                    <a href="countdown.html">2016 Countdown!</a>
+                </li>
+            </ul>
+        </div>
+        <p class="fade" id="title2">Click on the image to begin the slideshow.</p>
+        <p class="fade" style="size:20px" id="reloadthepage">If image doesn't appear, reload the page</p>
+        <div id="optionsdiv">
+            <p>Options</p>
+            <ul>
+                <li class="options">
+                    <p class="tiny">Length of slides: </p>
+                    <form>
+                        <input type="number" value="3" min="2" max="10" name="slidelength"></input>
+                    </form>
+                </li>
+                <li class="options">
+                    <p  id="slidelengthtext" class="fade">3 seconds</p>
+                </li>
+                <li class="options">
+                    <p class="tiny">Background color: </p>
+                    <form>
+                        <input type="color" value"#000000" name="backgroundcolor"></input>
+                    </form>
+                </li>
+                <li class="options">
+                    <p class="tiny">S for shuffle?</p>
+                    <form style="font-size:10px;">
+                        <input type="text" name="shuffleOn" size="2" value="S/N" maxlength="1"></input>
+                    </form>
+                </li>
+                <li class="options">
+                    <div id="musictoggle">
+                        <p>Click for music!</p>
+                    </div>
+                </li>
+                <li class="options">
+                    <p class="fade" id="fileis" style="font-size:10px">File: sayings/awake.jpg</p>
+                </li>
+                <li class="options">
+                    <p class="fade" id="filecount" style="font-size:10px">Shown: 0</p>
+                </li>
+                <li class="options">
+                    <div id="submitall">
+                        <p>Submit all</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="slideback">
+            <img src="sayings/awake.jpg" alt="awake.jpg" class="slides">
+            </img>
+        </div>
+        <p class="fade" id="title3"><strong>Noah's Cool Website</strong></p>
+    </body>
+    <script>
+        randBack();
+        howManyImages = 0;
+        var schange = function() {
+            var sourcy = sources[(Math.floor(Math.random()*sources.length))];
+            $('.slides').attr("src", sourcy);
+            howManyImages += 1;
+            sources.splice(sourcy, 1);
+            $('#fileis').html("File: "+sourcy+"");
+            $('#filecount').html("Shown: "+howManyImages+"");
+            if(howManyImages >= sources.length) {
+                resetSources();
+                howManyImages = 0;
+            };
+        };
+    imagenumber = 0;
+    var nchange = function () {
+        var sourcy = sources[imagenumber];
+        $('.slides').attr("src", sourcy);
+        imagenumber += 1;
+        $('#fileis').html("File: "+sourcy+"");
+        $('#filecount').html("Shown: "+imagenumber+"");
+        if(imagenumber >= sources.length) {
+            imagenumber = 0;
+        };
+    };
+        yes = true;
+        var doNothing = function () {
+            var doingnothinglol = 0;
+        };
+        var changes = setInterval(function () {doNothing()}, 100000);
+        $(document).ready(function () {
+                          $('#submitall').css('background-color', '#FF0000');
+                          $('#submitall').hover(function () {
+                                                $('#submitall').animate({borderRadius:"+=100px",backgroundColor:"#00FFF0"}, 'slow');
+                                                }, function () {
+                                                $('#submitall').animate({borderRadius:"-=100px",backgroundColor:"#FF0000"}, 'slow');
+                                                });
+                          $('#submitall').click(function () {submit()});
+                          if(yes) {
+            $('.slides').click(function(){
+                               $('#title2').fadeOut('fast');
+                               $('body').animate({
+                              backgroundColor:"#000000",
+                              color:"#000000"
+            }, 'slow');
+                                    if(yes) {
+                               $('.slides').animate({height: "+="+imgheight*0.1+"px", width:"+="+imgwidth*0.1+"px", borderRadius:"+=50px"}, 'slow'); yes=false;
+                               $('#optionsdiv').animate({backgroundColor:"#A0A0A0"}, 'slow');
+                               $('#slideback').animate({height: "+="+imgheight*0.1+"px", width:"+="+imgwidth*0.1+"px", backgroundColor:"#000000"}, 'fast'); };
+                               submit();
+                          });
+                          };
+                          var submit = function () {
+                          $('#reloadthepage').remove();
+                              $('#slidelengthtext').html($('input[name=slidelength]').val()+' seconds');
+                            clearInterval(changes);
+                              $('body').animate({backgroundColor:(''+$('input[name=backgroundcolor').val()+'')}, 2000);
+                              $('#slideback').animate({backgroundColor:(''+$('input[name=backgroundcolor').val()+'')}, 2000);
+                              changes = setInterval(function () {nchange()}, $('input[name=slidelength]').val()*1000);
+                          if($('input[name=shuffleOn]').val() === 'S') {
+                          clearInterval(changes);
+                          changes = setInterval(function () {schange()}, $('input[name=slidelength]').val()*1000);
+                          }
+                        };
+                });
+    </script>
+</html>
