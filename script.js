@@ -287,7 +287,7 @@ var randBack = function () {
                       $('#button2').click(function() {
                                           setHex($('input[name=customcolor]').val()); });
       $('#musictoggle').click(function () {
-                              $('body').append("<audio autoplay='autoplay' preload='auto'><source type='audio/mpeg'src='music.mp3'></audio>");
+                              alert("The music here is copyrighted, so I removed it for GitHub. But trust me, I know how to use audio tags. :)");
                               });
                       });
 var answer = function(a, yah, no) {
