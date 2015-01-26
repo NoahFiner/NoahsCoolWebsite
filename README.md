@@ -1,6 +1,5 @@
 # NoahsCoolWebsite
 The magical website of mine.
-Made for Fairview Web Team by Noah Finer
 
 What to do:
 OPEN UP HOMEPAGE.HTML FIRST!!!!
